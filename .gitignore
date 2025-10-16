@@ -1,0 +1,17 @@
+# OpenTofu/Terraform
+.terraform/
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.rc
+tofu.rc
+# IDE
+.vscode/
+.idea/
+.DS_Store
