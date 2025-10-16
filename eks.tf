@@ -11,11 +11,8 @@ resource "aws_eks_cluster" "this" {
       aws_subnet.private_2.id,
     ]
     endpoint_public_access  = true
-    endpoint_private_access = false
-    public_access_cidrs     = concat(var.eks_api_allowed_cidrs, [
-      var.private_subnet_1_cidr,
-      var.private_subnet_2_cidr
-    ])
+    endpoint_private_access = true
+    public_access_cidrs     = var.eks_api_allowed_cidrs
   }
 
   enabled_cluster_log_types = ["api", "authenticator"]
