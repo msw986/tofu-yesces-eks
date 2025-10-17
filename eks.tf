@@ -33,7 +33,7 @@ resource "aws_eks_node_group" "default" {
   }
 
   instance_types = [var.eks_node_instance_type]
-  disk_size      = 20
+  disk_size      = 50
   capacity_type  = "ON_DEMAND"
 
   tags = { Name = "${var.project_name}-eks-ng-default" }
