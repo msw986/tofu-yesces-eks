@@ -76,23 +76,86 @@ variable "eks_api_allowed_cidrs" {
 variable "eks_node_instance_type" {
   description = "EKS 节点实例类型"
   type        = string
-  default     = "t3.large" # 2 vCPU / 8 GiB
+  default     = "t3.xlarge" # 4 vCPU / 16 GiB
 }
 
 variable "eks_node_min_size" {
   description = "EKS 节点组最小节点数"
   type        = number
-  default     = 0
+  default     = 1
 }
 
 variable "eks_node_desired_size" {
   description = "EKS 节点组期望节点数"
   type        = number
-  default     = 0
+  default     = 1
 }
 
 variable "eks_node_max_size" {
   description = "EKS 节点组最大节点数"
   type        = number
   default     = 1
+}
+
+# ================= RDS 相关变量 =================
+variable "rds_instance_class" {
+  description = "RDS 实例类型"
+  type        = string
+  default     = "db.t3.micro" # 最小规格
+}
+
+variable "rds_engine_version" {
+  description = "MySQL 版本"
+  type        = string
+  default     = "5.7.44"
+}
+
+variable "rds_allocated_storage" {
+  description = "RDS 分配的存储空间 (GB)"
+  type        = number
+  default     = 20
+}
+
+variable "rds_database_name" {
+  description = "RDS 数据库名称"
+  type        = string
+  default     = "appdb"
+}
+
+variable "rds_username" {
+  description = "RDS 主用户名"
+  type        = string
+  default     = "admin"
+}
+
+variable "rds_password" {
+  description = "RDS 主用户密码"
+  type        = string
+  sensitive   = true
+  default     = "ChangeMe123!"
+}
+
+# ================= Redis 相关变量 =================
+variable "redis_node_type" {
+  description = "Redis 节点类型"
+  type        = string
+  default     = "cache.t3.micro" # 最小规格
+}
+
+variable "redis_engine_version" {
+  description = "Redis 版本"
+  type        = string
+  default     = "6.x"
+}
+
+variable "redis_num_cache_nodes" {
+  description = "Redis 缓存节点数量"
+  type        = number
+  default     = 1
+}
+
+variable "redis_parameter_group_name" {
+  description = "Redis 参数组名称"
+  type        = string
+  default     = "default.redis6.x"
 }

@@ -38,3 +38,36 @@ output "eks_cluster_endpoint" {
 output "eks_nodegroup_name" {
   value = aws_eks_node_group.default.node_group_name
 }
+
+# =============== RDS 输出 ===============
+output "rds_endpoint" {
+  description = "RDS MySQL 端点"
+  value       = aws_db_instance.main.endpoint
+}
+
+output "rds_port" {
+  description = "RDS MySQL 端口"
+  value       = aws_db_instance.main.port
+}
+
+output "rds_database_name" {
+  description = "RDS 数据库名称"
+  value       = aws_db_instance.main.db_name
+}
+
+output "rds_username" {
+  description = "RDS 主用户名"
+  value       = aws_db_instance.main.username
+  sensitive   = true
+}
+
+# =============== Redis 输出 ===============
+output "redis_endpoint" {
+  description = "Redis 端点"
+  value       = aws_elasticache_replication_group.main.primary_endpoint_address
+}
+
+output "redis_port" {
+  description = "Redis 端口"
+  value       = aws_elasticache_replication_group.main.port
+}
