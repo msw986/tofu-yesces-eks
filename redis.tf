@@ -36,7 +36,7 @@ resource "aws_security_group" "redis" {
 
 # Redis 参数组
 resource "aws_elasticache_parameter_group" "main" {
-  family = "redis6.x"
+  family = "redis7.x"
   name   = "${var.project_name}-redis-params"
 
   tags = {

@@ -107,7 +107,7 @@ variable "rds_instance_class" {
 variable "rds_engine_version" {
   description = "MySQL 版本"
   type        = string
-  default     = "5.7.44"
+  default     = "5.7.44-rds.20250818"
 }
 
 variable "rds_allocated_storage" {
@@ -145,7 +145,7 @@ variable "redis_node_type" {
 variable "redis_engine_version" {
   description = "Redis 版本"
   type        = string
-  default     = "6.x"
+  default     = "7.x"
 }
 
 variable "redis_num_cache_nodes" {
@@ -157,5 +157,5 @@ variable "redis_num_cache_nodes" {
 variable "redis_parameter_group_name" {
   description = "Redis 参数组名称"
   type        = string
-  default     = "default.redis6.x"
+  default     = "default.redis7"
 }
