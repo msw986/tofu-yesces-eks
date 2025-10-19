@@ -94,5 +94,5 @@ variable "eks_node_desired_size" {
 variable "eks_node_max_size" {
   description = "EKS 节点组最大节点数"
   type        = number
-  default     = 0
+  default     = 1
 }
