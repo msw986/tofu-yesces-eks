@@ -9,7 +9,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "项目名称，用于资源命名"
   type        = string
-  default     = "prod-yesces"
+  default     = "prod-yescex"
 }
 
 variable "vpc_cidr" {
@@ -58,7 +58,7 @@ variable "internal_subnet_2_cidr" {
 variable "eks_cluster_name" {
   description = "EKS 集群名称"
   type        = string
-  default     = "prod-yesces-eks"
+  default     = "prod-yescex-eks"
 }
 
 variable "eks_version" {
