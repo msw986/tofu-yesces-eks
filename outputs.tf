@@ -42,32 +42,32 @@ output "eks_nodegroup_name" {
 # =============== RDS 输出 ===============
 output "rds_endpoint" {
   description = "RDS MySQL 端点"
-  value       = aws_db_instance.main.endpoint
+  value       = var.rds_enabled ? aws_db_instance.main[0].endpoint : null
 }
 
 output "rds_port" {
   description = "RDS MySQL 端口"
-  value       = aws_db_instance.main.port
+  value       = var.rds_enabled ? aws_db_instance.main[0].port : null
 }
 
 output "rds_database_name" {
   description = "RDS 数据库名称"
-  value       = aws_db_instance.main.db_name
+  value       = var.rds_enabled ? aws_db_instance.main[0].db_name : null
 }
 
 output "rds_username" {
   description = "RDS 主用户名"
-  value       = aws_db_instance.main.username
+  value       = var.rds_enabled ? aws_db_instance.main[0].username : null
   sensitive   = true
 }
 
 # =============== Redis 输出 ===============
 output "redis_endpoint" {
   description = "Redis 端点"
-  value       = aws_elasticache_replication_group.main.primary_endpoint_address
+  value       = var.redis_enabled ? aws_elasticache_replication_group.main[0].primary_endpoint_address : null
 }
 
 output "redis_port" {
   description = "Redis 端口"
-  value       = aws_elasticache_replication_group.main.port
+  value       = var.redis_enabled ? aws_elasticache_replication_group.main[0].port : null
 }

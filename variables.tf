@@ -98,6 +98,12 @@ variable "eks_node_max_size" {
 }
 
 # ================= RDS 相关变量 =================
+variable "rds_enabled" {
+  description = "是否创建RDS实例"
+  type        = bool
+  default     = false  # 默认关闭以节省成本
+}
+
 variable "rds_instance_class" {
   description = "RDS 实例类型"
   type        = string
@@ -136,6 +142,12 @@ variable "rds_password" {
 }
 
 # ================= Redis 相关变量 =================
+variable "redis_enabled" {
+  description = "是否创建Redis实例"
+  type        = bool
+  default     = false  # 默认关闭以节省成本
+}
+
 variable "redis_node_type" {
   description = "Redis 节点类型"
   type        = string

@@ -2,6 +2,7 @@
 
 # 数据库子网组
 resource "aws_db_subnet_group" "main" {
+  count      = var.rds_enabled ? 1 : 0
   name       = "${var.project_name}-db-subnet-group"
   subnet_ids = [aws_subnet.internal_1.id, aws_subnet.internal_2.id]
 
@@ -12,6 +13,7 @@ resource "aws_db_subnet_group" "main" {
 
 # 数据库安全组
 resource "aws_security_group" "rds" {
+  count       = var.rds_enabled ? 1 : 0
   name_prefix = "${var.project_name}-rds-"
   vpc_id      = aws_vpc.main.id
 
@@ -36,6 +38,7 @@ resource "aws_security_group" "rds" {
 
 # RDS MySQL 实例
 resource "aws_db_instance" "main" {
+  count      = var.rds_enabled ? 1 : 0
   identifier = "${var.project_name}-mysql"
 
   engine         = "mysql"
@@ -51,8 +54,8 @@ resource "aws_db_instance" "main" {
   username = var.rds_username
   password = var.rds_password
 
-  vpc_security_group_ids = [aws_security_group.rds.id]
-  db_subnet_group_name   = aws_db_subnet_group.main.name
+  vpc_security_group_ids = [aws_security_group.rds[0].id]
+  db_subnet_group_name   = aws_db_subnet_group.main[0].name
 
   backup_retention_period = 7
   backup_window          = "03:00-04:00"
