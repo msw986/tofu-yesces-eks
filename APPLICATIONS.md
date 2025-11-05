@@ -1,4 +1,4 @@
-# Yescex 应用部署
+ls# Yescex 应用部署
 
 ## 应用项目位置
 应用代码和Kubernetes部署文件位于独立项目中：
