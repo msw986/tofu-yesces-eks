@@ -82,13 +82,13 @@ variable "eks_node_instance_type" {
 variable "eks_node_min_size" {
   description = "EKS 节点组最小节点数"
   type        = number
-  default     = 1
+  default     = 0
 }
 
 variable "eks_node_desired_size" {
   description = "EKS 节点组期望节点数"
   type        = number
-  default     = 1
+  default     = 0
 }
 
 variable "eks_node_max_size" {
