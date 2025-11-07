@@ -27,17 +27,18 @@ output "s3_endpoint_id" {
 }
 
 # =============== EKS 输出 ===============
-output "eks_cluster_name" {
-  value = aws_eks_cluster.this.name
-}
+# 已注释 - EKS 资源已释放
+# output "eks_cluster_name" {
+#   value = aws_eks_cluster.this.name
+# }
 
-output "eks_cluster_endpoint" {
-  value = aws_eks_cluster.this.endpoint
-}
+# output "eks_cluster_endpoint" {
+#   value = aws_eks_cluster.this.endpoint
+# }
 
-output "eks_nodegroup_name" {
-  value = aws_eks_node_group.default.node_group_name
-}
+# output "eks_nodegroup_name" {
+#   value = aws_eks_node_group.default.node_group_name
+# }
 
 # =============== RDS 输出 ===============
 output "rds_endpoint" {
